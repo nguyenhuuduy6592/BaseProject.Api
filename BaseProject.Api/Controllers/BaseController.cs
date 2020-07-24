@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BaseProject.Api.Controllers
 {
-    public class BaseController
+    public class BaseController : ControllerBase
     {
         public readonly IMapper mapper;
 

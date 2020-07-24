@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BaseProject.Api.Data
 {
@@ -10,9 +7,9 @@ namespace BaseProject.Api.Data
     /// </summary>
     public class EntityBase
     {
-        public long CreatedById { get; set; }
-        public long ModifiedById { get; set; }
-        public DateTime CreatedDateTimeUtc { get; set; }
-        public DateTime ModifiedDateTimeUtc { get; set; }
+        public long CreatedById { get; set; } = -1;
+        public long ModifiedById { get; set; } = -1;
+        public DateTime CreatedDateTimeUtc { get; set; } = DateTime.UtcNow;
+        public DateTime ModifiedDateTimeUtc { get; set; } = DateTime.UtcNow;
     }
 }

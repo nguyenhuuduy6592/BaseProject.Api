@@ -16,7 +16,9 @@ namespace BaseProject.Api.Data.People
 
         public async Task<long> CreateAsync(Person entity)
         {
-            throw new System.NotImplementedException();
+            dataContext.People.Add(entity);
+            await dataContext.SaveChangesAsync();
+            return entity.Id;
         }
 
         public async Task<bool> DeleteAsync(object id)
@@ -45,7 +47,16 @@ namespace BaseProject.Api.Data.People
 
         public async Task<Person> GetByIdAsync(object id)
         {
-            throw new System.NotImplementedException();
+            var output = await dataContext.People
+                .Select(x => new Person
+                {
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    DateOfBirth = x.DateOfBirth
+                })
+                .FirstOrDefaultAsync(x => x.Id == (int)id);
+            return output;
         }
 
         public async Task<bool> UpdateAsync(Person entity)

@@ -9,6 +9,7 @@ namespace BaseProject.Api.Infrastructure.ConfigRegister
         public AutoMapperProfileConfig()
         {
             CreateMap<Person, PersonQueryResponse>().ReverseMap();
+            CreateMap<Person, PersonDTO>().ReverseMap();
         }
     }
 }
