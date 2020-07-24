@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BaseProject.Api.Infrastructure.ConfigRegister;
+using FluentValidation.AspNetCore;
 
 namespace BaseProject.Api
 {
@@ -37,7 +38,8 @@ namespace BaseProject.Api
 
             services.AddAutoMapper(typeof(AutoMapperProfileConfig));
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(fv => { fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +56,7 @@ namespace BaseProject.Api
 
             app.UseHealthChecksConfig();
 
-            app.UseApiResponseAndExceptionWrapper(new AutoWrapperOptions { ShowStatusCode = true, IsApiOnly = false });
+            app.UseApiResponseAndExceptionWrapper(new AutoWrapperOptions { IsDebug = true, ShowStatusCode = true, IsApiOnly = false });
 
             app.UseHttpsRedirection();
 
