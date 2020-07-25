@@ -120,10 +120,16 @@
   <data name="CreatedSucessfully" xml:space="preserve">
     <value>Created sucessfully.</value>
   </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>Deleted successfully.</value>
+  </data>
   <data name="InvalidModel" xml:space="preserve">
     <value>Data is incorrect.</value>
   </data>
   <data name="ResourceNotFound" xml:space="preserve">
     <value>Record with id: {0} does not exist.</value>
+  </data>
+  <data name="UpdatedSuccessfully" xml:space="preserve">
+    <value>Updated successfully.</value>
   </data>
 </root>

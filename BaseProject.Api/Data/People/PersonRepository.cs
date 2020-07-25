@@ -23,12 +23,23 @@ namespace BaseProject.Api.Data.People
 
         public async Task<bool> DeleteAsync(object id)
         {
-            throw new System.NotImplementedException();
+            if (!await ExistAsync(id))
+            {
+                return false;
+            }
+
+            dataContext.People.Remove(new Person
+            {
+                Id = (int)id
+            });
+            await dataContext.SaveChangesAsync();
+
+            return true;
         }
 
         public async Task<bool> ExistAsync(object id)
         {
-            throw new System.NotImplementedException();
+            return await dataContext.People.AnyAsync(x => x.Id == (int)id);
         }
 
         public async Task<IEnumerable<Person>> GetAllAsync()
@@ -61,7 +72,15 @@ namespace BaseProject.Api.Data.People
 
         public async Task<bool> UpdateAsync(Person entity)
         {
-            throw new System.NotImplementedException();
+            if (!await ExistAsync(entity.Id))
+            {
+                return false;
+            }
+
+            dataContext.People.Attach(entity).State = EntityState.Modified;
+            await dataContext.SaveChangesAsync();
+
+            return true;
         }
     }
 }

@@ -70,6 +70,15 @@ namespace BaseProject.Api.Infrastructure.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deleted successfully..
+        /// </summary>
+        public static string DeletedSuccessfully {
+            get {
+                return ResourceManager.GetString("DeletedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data is incorrect..
         /// </summary>
         public static string InvalidModel {
@@ -84,6 +93,15 @@ namespace BaseProject.Api.Infrastructure.Languages {
         public static string ResourceNotFound {
             get {
                 return ResourceManager.GetString("ResourceNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updated successfully..
+        /// </summary>
+        public static string UpdatedSuccessfully {
+            get {
+                return ResourceManager.GetString("UpdatedSuccessfully", resourceCulture);
             }
         }
     }
